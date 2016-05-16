@@ -1,0 +1,28 @@
+.bars {
+  height: 105px;
+}
+
+.bar {
+  display: inline-block;
+  border-bottom: 5px white solid;
+}
+
+.i {
+  border-color: #6AD4D7;
+}
+
+.j {
+  border-color: #4E67D7;
+}
+
+.largest {
+  border-color: #D440D7;
+}
+
+.smallest {
+  border-color: #26FF1F;
+}
+
+.title {
+  text-align: center;
+}
