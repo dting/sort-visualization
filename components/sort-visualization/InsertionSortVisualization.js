@@ -47,7 +47,7 @@ const InsertionSortVisualization = React.createClass({
   render() {
     return (
       <div>
-        <Link to='/insertionsort'><h3 className={s.title}>Insertion Sort</h3></Link>
+        <Link to='/sort-visualization/insertionsort/'><h3 className={s.title}>Insertion Sort</h3></Link>
         <Bars arr={this.state.arr} highlights={this.state.highlights} />
       </div>
     );

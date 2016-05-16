@@ -2,7 +2,7 @@ import { Content } from '~/components';
 
 export default {
 
-  path: '/',
+  path: '/sort-visualization/',
 
   async action() {
     return new Promise((resolve, reject) => {

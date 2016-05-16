@@ -49,7 +49,7 @@ const BubbleSortVisualization = React.createClass({
   render() {
     return (
       <div>
-        <Link to='/bubblesort'><h3 className={s.title}>Bubble Sort</h3></Link>
+        <Link to='/sort-visualization/bubblesort/'><h3 className={s.title}>Bubble Sort</h3></Link>
         <Bars arr={this.state.arr} highlights={this.state.highlights} />
       </div>
     );

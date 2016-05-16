@@ -2,7 +2,7 @@ import { Selection } from '~/components';
 
 export default {
 
-  path: '/selectionsort',
+  path: '/sort-visualization/selectionsort/',
 
   async action() {
     return new Promise((resolve, reject) => {

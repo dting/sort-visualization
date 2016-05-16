@@ -21,7 +21,7 @@ const config = {
   // Options affecting the output of the compilation
   output: {
     path: path.resolve(__dirname, '../build'),
-    publicPath: '/',
+    publicPath: '/sort-visualization/',
     file: 'build/[name].js',
     sourcePrefix: '  ',
   },

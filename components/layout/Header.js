@@ -15,7 +15,7 @@ class Header extends React.Component {
     return (
       <header className="mdl-layout__header" ref="root">
         <div className="mdl-layout__header-row" style={{ padding: 0 }}>
-          <Link className="mdl-layout-title mdl-navigation__link" to="/">
+          <Link className="mdl-layout-title mdl-navigation__link" to="/sort-visualization/">
             Sort Visualization
           </Link>
         </div>

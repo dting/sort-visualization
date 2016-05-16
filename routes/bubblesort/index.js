@@ -2,7 +2,7 @@ import { Bubble } from '~/components';
 
 export default {
 
-  path: '/bubblesort',
+  path: '/sort-visualization/bubblesort/',
 
   async action() {
     return new Promise((resolve, reject) => {

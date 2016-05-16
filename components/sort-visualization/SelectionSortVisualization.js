@@ -56,7 +56,7 @@ const SelectionSortVisualization = React.createClass({
   render() {
     return (
       <div>
-        <Link to='/selectionsort'><h3 className={s.title}>Selection Sort</h3></Link>
+        <Link to='/sort-visualization/selectionsort/'><h3 className={s.title}>Selection Sort</h3></Link>
         <Bars arr={this.state.arr} highlights={this.state.highlights} />
       </div>
     );

@@ -2,7 +2,7 @@ import { Insertion } from '~/components';
 
 export default {
 
-  path: '/insertionsort',
+  path: '/sort-visualization/insertionsort/',
 
   async action() {
     return new Promise((resolve, reject) => {
