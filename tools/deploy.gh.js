@@ -1,9 +1,10 @@
+require('babel-polyfill');
 const GitRepo = require('git-repository');
 const task = require('./task');
 
 const remote = {
   name: 'github',
-  url: 'https://github.com/{user}/{repo}.git',
+  url: 'https://github.com/dting/sort-visualization.git',
   branch: 'gh-pages',
 };
 
