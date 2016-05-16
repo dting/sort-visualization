@@ -19,18 +19,3 @@ const selectionSort = arr => {
   }
 };
 ```
-``` js
-function selectionSort(arr) {
-  for (var i = 0; i < arr.length; i++) {
-    var smallest = arr[i];
-    var smallestIndex = i;
-    for (var j = i + 1; j < arr.length; j++) {
-      if (arr[j] <= smallest) {
-        smallest = arr[j];
-        smallestIndex = j;
-      }
-    }
-    swap(arr, smallestIndex, i);
-  }
-}
-```

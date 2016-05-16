@@ -13,12 +13,3 @@ const insertionSort = arr => {
   }
 };
 ```
-``` js
-function insertionSort(arr) {
-  for (var i = 1; i < arr.length; i++) {
-    for (var j = i; j > 0 && arr[j] < arr[j - 1]; j--) {
-      swap(arr, j, j - 1);
-    }
-  }
-}
-```

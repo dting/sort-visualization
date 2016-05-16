@@ -1,5 +1,7 @@
 export const rand = i => Math.floor(Math.random() * i);
 
+export const randIn = (l, h) => Math.floor(Math.random() * (h - l)) + l;
+
 export const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
 export const shuffle = arr => {

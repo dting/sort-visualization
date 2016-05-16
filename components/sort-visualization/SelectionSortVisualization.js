@@ -1,7 +1,7 @@
 import React from 'react';
 import Bars from './Bars';
 import { Link } from 'react-app';
-import { rand, shuffle, swap } from './utils';
+import { shuffle, swap } from './utils';
 import s from './Visualization.css';
 
 function *selectionSort(arr, highlights) {
@@ -56,7 +56,9 @@ const SelectionSortVisualization = React.createClass({
   render() {
     return (
       <div>
-        <Link to='/sort-visualization/selectionsort/'><h3 className={s.title}>Selection Sort</h3></Link>
+        <Link to='/sort-visualization/selectionsort/'>
+          <h3 className={s.title}>Selection Sort</h3>
+        </Link>
         <Bars arr={this.state.arr} highlights={this.state.highlights} />
       </div>
     );

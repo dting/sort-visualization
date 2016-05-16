@@ -1,7 +1,7 @@
 import React from 'react';
 import Bars from './Bars';
 import { Link } from 'react-app';
-import { rand, shuffle, swap } from './utils';
+import { shuffle, swap } from './utils';
 import s from './Visualization.css';
 
 function *bubbleSort(arr, highlights) {
@@ -49,7 +49,9 @@ const BubbleSortVisualization = React.createClass({
   render() {
     return (
       <div>
-        <Link to='/sort-visualization/bubblesort/'><h3 className={s.title}>Bubble Sort</h3></Link>
+        <Link to='/sort-visualization/bubblesort/'>
+          <h3 className={s.title}>Bubble Sort</h3>
+        </Link>
         <Bars arr={this.state.arr} highlights={this.state.highlights} />
       </div>
     );
