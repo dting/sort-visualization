@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout, SortVisualization, shuffle } from '~/components';
 
 function Selection({ html }) {
-  const arr = Array.from(Array(50).keys());
+  const arr = Array.from(Array(100).keys());
   shuffle(arr);
   return (
     <Layout>

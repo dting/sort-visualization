@@ -82,3 +82,71 @@ export function *quicksort(arr, highlights) {
     }
   }
 };
+
+const left = i => 2 * i + 1;
+const right = i => 2 * i + 2;
+
+export function *heapsort(arr, highlights) {
+  for (let i = Math.floor((arr.length - 1) / 2); i > -1; i--) {
+    highlights.i = i;
+    let stack = [{ j: i, size: arr.length }];
+    while (stack.length) {
+      let { j, size } = stack.pop();
+      let l = left(j);
+      let r = right(j);
+      let largest = j;
+      highlights.smallest = l;
+      highlights.largest = r;
+      highlights.j = j;
+
+      yield;
+      if (l < size && arr[l] > arr[j]) {
+        largest = l;
+      }
+
+      yield;
+      if (r < size && arr[r] > arr[largest]) {
+        largest = r;
+      }
+
+      if (largest !== j) {
+        swap(arr, j, largest);
+        yield;
+        stack.push({ j: largest, size: size });
+      }
+    }
+  }
+
+  for (let i = arr.length - 1; i > 0; i--) {
+    highlights.i = i;
+    swap(arr, 0, i);
+    yield;
+    let stack = [{ j: 0, size: i }];
+    while (stack.length) {
+      let { j, size } = stack.pop();
+      let l = left(j);
+      let r = right(j);
+      let largest = j;
+      highlights.smallest = l < size ? l : -1;
+      highlights.largest = r < size ? r : -1;
+      highlights.j = j;
+
+      yield;
+      if (l < size && arr[l] > arr[j]) {
+        largest = l;
+      }
+
+      yield;
+      if (r < size && arr[r] > arr[largest]) {
+        largest = r;
+      }
+
+      if (largest !== j) {
+        swap(arr, j, largest);
+        yield;
+        stack.push({ j: largest, size: size });
+      }
+    }
+  }
+};
+

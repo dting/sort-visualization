@@ -1,19 +1,18 @@
-import { Content, shuffle } from '~/components';
+import { Heap } from '~/components';
 
 export default {
 
-  path: '/sort-visualization/',
+  path: '/sort-visualization/heapsort/',
 
   async action() {
     return new Promise((resolve, reject) => {
       require.ensure([], require => {
-        const arr = Array.from(Array(100).keys());
-        shuffle(arr);
         try {
+          const content = require('./index.md');
           resolve({
-            title: 'Contents',
-            component: Content,
-            props: {arr: arr},
+            title: content.title,
+            component: Heap,
+            props: content,
           });
         } catch (err) {
           reject(err);
