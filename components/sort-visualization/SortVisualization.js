@@ -1,4 +1,5 @@
 import React from 'react';
+import FA from 'react-fontawesome';
 import Bars from './Bars';
 import { Link } from 'react-app';
 import shuffle from '~/components';
@@ -14,7 +15,7 @@ const SortVisualization = React.createClass({
       if (result.done) {
         clearInterval(this.cleanup);
       }
-    }, 50);
+    }, 75);
   },
 
   componentWillUnmount() {
@@ -32,10 +33,10 @@ const SortVisualization = React.createClass({
 
   render() {
     return (
-      <div className={s.content}>
+      <div>
         <div className={s.title}>
           <Link to={`/sort-visualization/${this.state.type}/`}>
-            {this.state.title}
+            {this.state.title} <FA name="info-circle" />
           </Link>
         </div>
         <Bars arr={this.state.arr} highlights={this.state.highlights} />
