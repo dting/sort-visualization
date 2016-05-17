@@ -19,9 +19,9 @@ export function *insertionsort(arr, highlights) {
   for (let i = 1; i < arr.length; i++) {
     highlights.i = i;
     for (let j = i; j > 0 && arr[j] < arr[j - 1]; j--) {
+      yield;
       highlights.j = j;
       highlights.smallest = j - 1;
-      yield;
       swap(arr, j, j - 1);
       yield;
     }
