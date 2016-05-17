@@ -32,10 +32,12 @@ const SortVisualization = React.createClass({
 
   render() {
     return (
-      <div>
-        <Link to={`/sort-visualization/${this.state.type}/`}>
-          <h3 className={s.title}>{this.state.title}</h3>
-        </Link>
+      <div className={s.content}>
+        <div className={s.title}>
+          <Link to={`/sort-visualization/${this.state.type}/`}>
+            {this.state.title}
+          </Link>
+        </div>
         <Bars arr={this.state.arr} highlights={this.state.highlights} />
       </div>
     );

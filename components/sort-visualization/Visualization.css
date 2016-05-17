@@ -1,6 +1,6 @@
 .bars {
   height: 105px;
-  background-color: aliceblue;
+  background-color: #9DDED7;
 }
 
 .bar {
@@ -25,5 +25,17 @@
 }
 
 .title {
-  text-align: center;
+  margin-top: 10px;
+  background-color: #000000;
+}
+
+.title a {
+  font-weight: 400;
+  padding-left: 10px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.content {
+  margin: 10px;
 }

@@ -54,7 +54,6 @@ export function *quicksort(arr, highlights) {
   const stack = [{ l: 0, h: arr.length - 1 }];
   while (stack.length) {
     let { l, h } = stack.pop();
-    yield;
     if (l < h) {
       highlights.smallest = l;
       highlights.largest = h;
@@ -100,7 +99,7 @@ export function *heapsort(arr, highlights) {
       highlights.j = j;
 
       yield;
-      if (l < size && arr[l] > arr[j]) {
+      if (l < size && arr[l] > arr[largest]) {
         largest = l;
       }
 
@@ -132,7 +131,7 @@ export function *heapsort(arr, highlights) {
       highlights.j = j;
 
       yield;
-      if (l < size && arr[l] > arr[j]) {
+      if (l < size && arr[l] > arr[largest]) {
         largest = l;
       }
 
