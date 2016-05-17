@@ -6,7 +6,7 @@ class Bars extends React.Component {
 
   render() {
     const bars = this.props.arr.map((val, idx) => {
-      return <Bar val={val} key={val} idx={idx} highlights={this.props.highlights} />;
+      return <Bar val={val} key={idx} idx={idx} highlights={this.props.highlights} />;
     });
     return (
       <div className={s.bars}>

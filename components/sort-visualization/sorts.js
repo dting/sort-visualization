@@ -1,6 +1,6 @@
 import { swap, rand, randIn } from './utils';
 
-export function *bubblesort(arr, highlights) {
+export function *bubblesort({ arr, highlights }) {
   for (let i = arr.length - 1; i > 0; i--) {
     highlights.i = i;
     for (let j = 0; j < i; j++) {
@@ -15,7 +15,7 @@ export function *bubblesort(arr, highlights) {
   }
 };
 
-export function *insertionsort(arr, highlights) {
+export function *insertionsort({ arr, highlights }) {
   for (let i = 1; i < arr.length; i++) {
     highlights.i = i;
     for (let j = i; j > 0 && arr[j] < arr[j - 1]; j--) {
@@ -28,7 +28,7 @@ export function *insertionsort(arr, highlights) {
   }
 };
 
-export function *selectionsort(arr, highlights) {
+export function *selectionsort({ arr, highlights }) {
   for (let i = 0; i < arr.length; i++) {
     let smallest = arr[i];
     let smallestIndex = i;
@@ -50,7 +50,7 @@ export function *selectionsort(arr, highlights) {
   }
 };
 
-export function *quicksort(arr, highlights) {
+export function *quicksort({ arr, highlights }) {
   const stack = [{ l: 0, h: arr.length - 1 }];
   while (stack.length) {
     let { l, h } = stack.pop();
@@ -85,7 +85,7 @@ export function *quicksort(arr, highlights) {
 const left = i => 2 * i + 1;
 const right = i => 2 * i + 2;
 
-export function *heapsort(arr, highlights) {
+export function *heapsort({ arr, highlights }) {
   for (let i = Math.floor((arr.length - 1) / 2); i > -1; i--) {
     highlights.i = i;
     let stack = [{ j: i, size: arr.length }];
@@ -149,3 +149,63 @@ export function *heapsort(arr, highlights) {
   }
 };
 
+export function *mergesort({ arr, aux, highlights, auxHighlights }) {
+  const stack = [{ l: 0, h: arr.length - 1 }];
+  while (stack.length) {
+    let { l, h, action } = stack.pop();
+    highlights.smallest = l;
+    highlights.largest = h;
+    if (action === 'merge') {
+      const m = Math.floor((h - l) / 2) + l;
+      let i = l;
+      let j = m;
+      let pos = l;
+
+      while (i < m && j <= h) {
+        yield;
+        highlights.i = i;
+        highlights.j = j;
+        yield;
+        if (arr[i] > arr[j]) {
+          aux[pos++] = arr[j++];
+        } else {
+          aux[pos++] = arr[i++];
+        }
+      }
+
+      while (i < m) {
+        yield;
+        aux[pos++] = arr[i++];
+        highlights.i = i;
+        highlights.j = j;
+      }
+
+      while (j <= h) {
+        yield;
+        aux[pos++] = arr[j++];
+        highlights.i = i;
+        highlights.j = j;
+      }
+
+      for (let k = l; k <= h; k++) {
+        arr[k] = aux[k];
+        aux[k] = 99;
+      }
+
+      highlights.i = -1;
+      highlights.j = -1;
+    } else {
+      if (h - l === 1) {
+        yield;
+        if (arr[l] > arr[h]) {
+          swap(arr, l, h);
+        }
+      } else if (h - l > 1) {
+        const m = Math.floor((h - l) / 2) + l;
+        stack.push({ l: l, h: h, action: 'merge' });
+        stack.push({ l: m, h: h });
+        stack.push({ l: l, h: m - 1 });
+      }
+    }
+  }
+};

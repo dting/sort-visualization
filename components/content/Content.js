@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, SortVisualization } from '~/components';
+import { Layout, SortVisualization, MergeSortVisualization } from '~/components';
 
 function Content({ arr }) {
   return (
@@ -9,6 +9,7 @@ function Content({ arr }) {
       <SortVisualization type="insertionsort" title="Insertion Sort" arr={arr} />
       <SortVisualization type="quicksort" title="Quick Sort" arr={arr} />
       <SortVisualization type="heapsort" title="Heap Sort" arr={arr} />
+      <SortVisualization type="mergesort" title="Merge Sort" arr={arr} aux={Array(100).fill(99)} />
     </Layout>
   );
 }

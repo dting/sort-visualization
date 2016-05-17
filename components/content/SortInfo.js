@@ -2,11 +2,16 @@ import React from 'react';
 import { Layout, SortVisualization, shuffle } from '~/components';
 
 function SortInfo({ type, title, html }) {
-  const arr = Array.from(Array(100).keys());
-  shuffle(arr);
+  const props = {
+    title: title,
+    type: type,
+    arr: Array.from(Array(100).keys()),
+    aux: type === 'mergesort' ? Array(100).fill(99) : null,
+  };
+  shuffle(props.arr);
   return (
     <Layout>
-      <SortVisualization type={type} title={title} arr={arr} />
+      <SortVisualization {...props} />
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   );

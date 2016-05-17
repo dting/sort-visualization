@@ -8,7 +8,7 @@ import s from './Visualization.css';
 
 const SortVisualization = React.createClass({
   componentDidMount() {
-    let sorter = sorts[this.state.type](this.state.arr, this.state.highlights);
+    let sorter = sorts[this.state.type]({ ...this.state });
     this.cleanup = setInterval(() => {
       let result = sorter.next();
       this.setState(this.state);
@@ -26,6 +26,8 @@ const SortVisualization = React.createClass({
     return {
       arr: this.props.arr.slice(),
       highlights: {},
+      aux: this.props.aux,
+      auxHighlights: {},
       type: this.props.type,
       title: this.props.title,
     };
@@ -40,6 +42,7 @@ const SortVisualization = React.createClass({
           </Link>
         </div>
         <Bars arr={this.state.arr} highlights={this.state.highlights} />
+        {this.state.aux && <Bars arr={this.state.aux} highlights={this.state.auxHighlights} />}
       </div>
     );
   },
