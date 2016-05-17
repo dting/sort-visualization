@@ -1,4 +1,4 @@
-import { Bubble } from '~/components';
+import { SortInfo } from '~/components';
 
 export default {
 
@@ -9,9 +9,10 @@ export default {
       require.ensure([], require => {
         try {
           const content = require('./index.md');
+          content.type = 'bubblesort';
           resolve({
             title: content.title,
-            component: Bubble,
+            component: SortInfo,
             props: content,
           });
         } catch (err) {

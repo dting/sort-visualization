@@ -1,4 +1,4 @@
-import { Quick } from '~/components';
+import { SortInfo } from '~/components';
 
 export default {
 
@@ -9,9 +9,10 @@ export default {
       require.ensure([], require => {
         try {
           const content = require('./index.md');
+          content.type = 'quicksort';
           resolve({
             title: content.title,
-            component: Quick,
+            component: SortInfo,
             props: content,
           });
         } catch (err) {
