@@ -1,4 +1,4 @@
-import { Content } from '~/components';
+import { Content, shuffle } from '~/components';
 
 export default {
 
@@ -7,11 +7,13 @@ export default {
   async action() {
     return new Promise((resolve, reject) => {
       require.ensure([], require => {
+        const arr = Array.from(Array(50).keys());
+        shuffle(arr);
         try {
           resolve({
             title: 'Contents',
             component: Content,
-            props: {},
+            props: {arr: arr},
           });
         } catch (err) {
           reject(err);

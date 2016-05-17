@@ -1,17 +1,13 @@
 import React from 'react';
-import { Layout } from '~/components';
-import { BubbleSortVisualization } from '~/components';
-import { SelectionSortVisualization } from '~/components';
-import { InsertionSortVisualization } from '~/components';
-import { QuickSortVisualization } from '~/components';
+import { Layout, SortVisualization } from '~/components';
 
-function Content() {
+function Content({ arr }) {
   return (
     <Layout>
-      <BubbleSortVisualization />
-      <SelectionSortVisualization />
-      <InsertionSortVisualization />
-      <QuickSortVisualization />
+      <SortVisualization type="bubblesort" title="Bubble Sort" arr={arr} />
+      <SortVisualization type="selectionsort" title="Selection Sort" arr={arr} />
+      <SortVisualization type="insertionsort" title="Insertion Sort" arr={arr} />
+      <SortVisualization type="quicksort" title="Quick Sort" arr={arr} />
     </Layout>
   );
 }

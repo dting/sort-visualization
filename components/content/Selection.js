@@ -1,10 +1,12 @@
 import React from 'react';
-import { Layout, SelectionSortVisualization } from '~/components';
+import { Layout, SortVisualization, shuffle } from '~/components';
 
 function Selection({ html }) {
+  const arr = Array.from(Array(50).keys());
+  shuffle(arr);
   return (
     <Layout>
-      <SelectionSortVisualization />
+      <SortVisualization type="selectionsort" title="Selection Sort" arr={arr} />
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   );
