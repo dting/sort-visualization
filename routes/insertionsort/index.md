@@ -13,3 +13,14 @@ const insertionSort = arr => {
   }
 };
 ```
+
+#### Notes
+
+```
+Time:
+    Worst : O(n^2)
+  Average : O(n^2)
+     Best : O(n)
+
+Space: O(1)
+```

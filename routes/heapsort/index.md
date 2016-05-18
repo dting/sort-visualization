@@ -45,3 +45,14 @@ const heapSort = arr => {
   }
 };
 ```
+
+#### Notes
+
+```
+Time:
+    Worst : O(n log(n))
+  Average : O(n log(n))
+     Best : O(n log(n))
+
+Space: O(1)
+```

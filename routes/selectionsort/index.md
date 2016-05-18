@@ -19,3 +19,14 @@ const selectionSort = arr => {
   }
 };
 ```
+
+#### Notes
+
+```
+Time:
+    Worst : O(n^2)
+  Average : O(n^2)
+     Best : O(n^2)
+
+Space: O(1)
+```

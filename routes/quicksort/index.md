@@ -53,3 +53,14 @@ const quickSort = arr => {
   }
 };
 ```
+
+#### Notes
+
+```
+Time:
+    Worst : O(n^2)
+  Average : O(n log(n))
+     Best : O(n log(n))
+
+Space: O(log(n))
+```

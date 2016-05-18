@@ -32,3 +32,14 @@ const mergeSort = (arr, l=0, h=arr.length-1) => {
   return _mergeMerge(bottom, top);
 };
 ```
+
+#### Notes
+
+```
+Time:
+    Worst : O(n log(n))
+  Average : O(n log(n))
+     Best : O(n log(n))
+
+Space: O(n)
+```

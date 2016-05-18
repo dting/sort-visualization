@@ -14,9 +14,20 @@ const isSorted = arr => {
   return true;
 }
 
-const bogosort = arr => {
+const bogoSort = arr => {
   while (!isSorted(arr)) {
     shuffle(arr);
   }
 };
+```
+
+#### Notes
+
+```
+Time:
+    Worst : Unbounded
+  Average : O(n * n!)
+     Best : O(n)
+
+Space: O(1)
 ```
