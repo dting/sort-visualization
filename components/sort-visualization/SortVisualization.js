@@ -25,9 +25,9 @@ const SortVisualization = React.createClass({
   getInitialState() {
     return {
       arr: this.props.arr.slice(),
-      highlights: {},
+      meta: {},
       aux: this.props.aux,
-      auxHighlights: {},
+      auxMeta: {},
       type: this.props.type,
       title: this.props.title,
     };
@@ -38,11 +38,15 @@ const SortVisualization = React.createClass({
       <div>
         <div className={s.title}>
           <Link to={`/sort-visualization/${this.state.type}/`}>
-            {this.state.title} <FA name="info-circle" />
+            {this.state.title}
+            <span className="mdl-layout-spacer" />
+            {this.state.meta.status &&
+              <span className={s.status}>[ {`${this.state.meta.status}`} ]</span>}
+            <FA name="info-circle" />
           </Link>
         </div>
-        <Bars arr={this.state.arr} highlights={this.state.highlights} />
-        {this.state.aux && <Bars arr={this.state.aux} highlights={this.state.auxHighlights} />}
+        <Bars arr={this.state.arr} meta={this.state.meta} />
+        {this.state.aux && <Bars arr={this.state.aux} meta={this.state.auxMeta} />}
       </div>
     );
   },

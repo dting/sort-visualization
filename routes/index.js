@@ -5,6 +5,7 @@ import insertionsort from './insertionsort';
 import quicksort from './quicksort';
 import heapsort from './heapsort';
 import mergesort from './mergesort';
+import bogosort from './bogosort';
 import error from './error';
 
 const routes = {
@@ -19,6 +20,7 @@ const routes = {
     quicksort,
     heapsort,
     mergesort,
+    bogosort,
     error,
   ],
 

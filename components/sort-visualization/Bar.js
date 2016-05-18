@@ -4,13 +4,13 @@ import s from './Visualization.css';
 
 const cx = classNames.bind(s);
 
-function Bar({ idx, val, highlights }) {
+function Bar({ idx, val, meta }) {
   const className = cx({
     bar: true,
-    i: highlights.i === idx,
-    j: highlights.j === idx,
-    largest: highlights.largest === idx,
-    smallest: highlights.smallest === idx,
+    i: meta.i === idx,
+    j: meta.j === idx,
+    largest: meta.largest === idx,
+    smallest: meta.smallest === idx,
   });
   const divStyle = {
     height: `${val + 1}px`,

@@ -1,76 +1,88 @@
 import { swap, rand, randIn } from './utils';
 
-export function *bubblesort({ arr, highlights }) {
+export function *bubblesort({ arr, meta }) {
+  meta.status = 'bubble';
   for (let i = arr.length - 1; i > 0; i--) {
-    highlights.i = i;
+    meta.i = i;
     for (let j = 0; j < i; j++) {
       yield;
-      highlights.j = j;
-      highlights.largest = j + 1;
+      meta.j = j;
+      meta.largest = j + 1;
       if (arr[j] > arr[j + 1]) {
         swap(arr, j, j + 1);
         yield;
       }
     }
   }
+
+  meta.status = 'done';
 };
 
-export function *insertionsort({ arr, highlights }) {
+export function *insertionsort({ arr, meta }) {
+  meta.status = 'insert';
   for (let i = 1; i < arr.length; i++) {
-    highlights.i = i;
+    meta.i = i;
     for (let j = i; j > 0 && arr[j] < arr[j - 1]; j--) {
       yield;
-      highlights.j = j;
-      highlights.smallest = j - 1;
+      meta.j = j;
+      meta.smallest = j - 1;
       swap(arr, j, j - 1);
       yield;
     }
   }
+
+  meta.status = 'done';
 };
 
-export function *selectionsort({ arr, highlights }) {
+export function *selectionsort({ arr, meta }) {
   for (let i = 0; i < arr.length; i++) {
+    meta.status = 'select';
     let smallest = arr[i];
     let smallestIndex = i;
 
-    highlights.i = i;
-    highlights.smallest = i;
+    meta.i = i;
+    meta.smallest = i;
     for (let j = i + 1; j < arr.length; j++) {
-      highlights.j = j;
+      meta.j = j;
       yield;
       if (arr[j] <= smallest) {
         smallest = arr[j];
         smallestIndex = j;
-        highlights.smallest = j;
+        meta.smallest = j;
       }
     }
 
+    meta.status = 'swap';
     swap(arr, smallestIndex, i);
     yield;
   }
+
+  meta.status = 'done';
 };
 
-export function *quicksort({ arr, highlights }) {
+export function *quicksort({ arr, meta }) {
   const stack = [{ l: 0, h: arr.length - 1 }];
   while (stack.length) {
     let { l, h } = stack.pop();
     if (l < h) {
-      highlights.smallest = l;
-      highlights.largest = h;
+      meta.status = 'pick pivot';
+      meta.smallest = l;
+      meta.largest = h;
       swap(arr, randIn(l, h), h);
       yield;
 
       let pivotIndex = l;
       let pivotValue = arr[h];
-      highlights.i = pivotIndex;
+      meta.i = pivotIndex;
+      meta.status = 'partition';
       for (let j = l; j < h; j++) {
-        highlights.j = j;
+        meta.j = j;
         yield;
         if (arr[j] <= pivotValue) {
           swap(arr, pivotIndex, j);
           yield;
           pivotIndex++;
-          highlights.i = pivotIndex;
+          meta.i = pivotIndex;
         }
       }
 
@@ -80,23 +92,26 @@ export function *quicksort({ arr, highlights }) {
       stack.push({ l: l, h: pivotIndex - 1 });
     }
   }
+
+  meta.status = 'done';
 };
 
 const left = i => 2 * i + 1;
 const right = i => 2 * i + 2;
 
-export function *heapsort({ arr, highlights }) {
+export function *heapsort({ arr, meta }) {
   for (let i = Math.floor((arr.length - 1) / 2); i > -1; i--) {
-    highlights.i = i;
+    meta.status = 'build heap';
+    meta.i = i;
     let stack = [{ j: i, size: arr.length }];
     while (stack.length) {
       let { j, size } = stack.pop();
       let l = left(j);
       let r = right(j);
       let largest = j;
-      highlights.smallest = l;
-      highlights.largest = r;
-      highlights.j = j;
+      meta.smallest = l;
+      meta.largest = r;
+      meta.j = j;
 
       yield;
       if (l < size && arr[l] > arr[largest]) {
@@ -117,18 +132,20 @@ export function *heapsort({ arr, highlights }) {
   }
 
   for (let i = arr.length - 1; i > 0; i--) {
-    highlights.i = i;
+    meta.status = 'swap';
+    meta.i = i;
     swap(arr, 0, i);
     yield;
+    meta.status = 'heapify';
     let stack = [{ j: 0, size: i }];
     while (stack.length) {
       let { j, size } = stack.pop();
       let l = left(j);
       let r = right(j);
       let largest = j;
-      highlights.smallest = l < size ? l : -1;
-      highlights.largest = r < size ? r : -1;
-      highlights.j = j;
+      meta.smallest = l < size ? l : -1;
+      meta.largest = r < size ? r : -1;
+      meta.j = j;
 
       yield;
       if (l < size && arr[l] > arr[largest]) {
@@ -147,15 +164,19 @@ export function *heapsort({ arr, highlights }) {
       }
     }
   }
+
+  meta.status = 'done';
 };
 
-export function *mergesort({ arr, aux, highlights, auxHighlights }) {
+export function *mergesort({ arr, aux, meta, auxmeta }) {
   const stack = [{ l: 0, h: arr.length - 1 }];
   while (stack.length) {
+    meta.status = 'sort';
     let { l, h, action } = stack.pop();
-    highlights.smallest = l;
-    highlights.largest = h;
+    meta.smallest = l;
+    meta.largest = h;
     if (action === 'merge') {
+      meta.status = 'merge';
       const m = Math.floor((h - l) / 2) + l;
       let i = l;
       let j = m;
@@ -163,8 +184,8 @@ export function *mergesort({ arr, aux, highlights, auxHighlights }) {
 
       while (i < m && j <= h) {
         yield;
-        highlights.i = i;
-        highlights.j = j;
+        meta.i = i;
+        meta.j = j;
         yield;
         if (arr[i] > arr[j]) {
           aux[pos++] = arr[j++];
@@ -176,15 +197,15 @@ export function *mergesort({ arr, aux, highlights, auxHighlights }) {
       while (i < m) {
         yield;
         aux[pos++] = arr[i++];
-        highlights.i = i;
-        highlights.j = j;
+        meta.i = i;
+        meta.j = j;
       }
 
       while (j <= h) {
         yield;
         aux[pos++] = arr[j++];
-        highlights.i = i;
-        highlights.j = j;
+        meta.i = i;
+        meta.j = j;
       }
 
       for (let k = l; k <= h; k++) {
@@ -192,8 +213,8 @@ export function *mergesort({ arr, aux, highlights, auxHighlights }) {
         aux[k] = 99;
       }
 
-      highlights.i = -1;
-      highlights.j = -1;
+      meta.i = -1;
+      meta.j = -1;
     } else {
       if (h - l === 1) {
         yield;
@@ -208,4 +229,37 @@ export function *mergesort({ arr, aux, highlights, auxHighlights }) {
       }
     }
   }
+
+  meta.status = 'done';
+};
+
+export function *bogosort({ arr, meta }) {
+  const h = arr.length - 1;
+  meta.i = 0;
+  meta.j = h;
+  let i = 0;
+  while (i <= h) {
+    let j = i + 1;
+    meta.status = 'check';
+    meta.smallest = i;
+    meta.largest = j;
+    yield;
+    if (arr[i] > arr[j]) {
+      meta.status = 'shuffle';
+      for (let si = 0; si <= h; si++) {
+        meta.smallest = si;
+        let r = randIn(si, h);
+        meta.largest = r;
+        yield;
+        swap(arr, r, si);
+        yield;
+      }
+
+      i = 0;
+    } else {
+      i++;
+    }
+  }
+
+  meta.status = 'done';
 };

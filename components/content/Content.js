@@ -10,6 +10,7 @@ function Content({ arr }) {
       <SortVisualization type="quicksort" title="Quick Sort" arr={arr} />
       <SortVisualization type="heapsort" title="Heap Sort" arr={arr} />
       <SortVisualization type="mergesort" title="Merge Sort" arr={arr} aux={Array(100).fill(99)} />
+      <SortVisualization type="bogosort" title="Bogo Sort" arr={arr} />
     </Layout>
   );
 }
