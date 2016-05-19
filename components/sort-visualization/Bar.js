@@ -13,7 +13,7 @@ function Bar({ idx, val, meta }) {
     smallest: meta.smallest === idx,
   };
   context[`bar-${val}`] = true;
-  return <div className={cx(context)}></div>;
+  return <div className={cx(context)} />;
 }
 
 export default Bar;

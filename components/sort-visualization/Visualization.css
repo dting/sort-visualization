@@ -1,12 +1,13 @@
 .bars {
-  height: 105px;
+  height: 104px;
   background-color: #ADF8F1;
+  display: flex;
+  align-items: flex-end;
 }
 
 .bar {
-  display: inline-block;
   border-bottom: 5px #132E51 solid;
-  width: 1%;
+  flex: 1;
 }
 
 .i,
@@ -34,7 +35,6 @@
   color: #FFF;
   text-decoration: none;
   display: flex;
-  flex-direction: row;
   align-items: center;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .bar-0 {
-  height: 0px;
+  height: 0;
   background-color: hsl(210, 50%, 75%);
 }
 .bar-1 {
