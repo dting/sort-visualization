@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout, SortVisualization, shuffle } from '~/components';
 
-function SortInfo({ type, title, html }) {
+function SortInfo({ type, title, best, worst, html }) {
   const props = {
     title: title,
     type: type,
@@ -12,6 +12,10 @@ function SortInfo({ type, title, html }) {
   return (
     <Layout>
       <SortVisualization {...props} />
+      {best &&
+        <SortVisualization title="Best Case" type={props.type} arr={best} />}
+      {worst &&
+        <SortVisualization title="Worst Case" type={props.type} arr={worst} />}
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   );

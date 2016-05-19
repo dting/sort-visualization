@@ -4,4 +4,4 @@ export SortInfo from './content/SortInfo';
 export Layout from './layout/Layout';
 
 export SortVisualization from './sort-visualization/SortVisualization';
-export { shuffle } from './sort-visualization/utils';
+export { shuffle, buildHeap } from './sort-visualization/utils';

@@ -2,13 +2,15 @@ import { swap, rand, randIn } from './utils';
 
 export function *bubblesort({ arr, meta }) {
   meta.status = 'bubble';
-  for (let i = arr.length - 1; i > 0; i--) {
+  for (let i = arr.length - 1, counter = 1; i > 0 && counter; i--) {
+    counter = 0;
     meta.i = i;
     for (let j = 0; j < i; j++) {
       yield;
       meta.j = j;
       meta.largest = j + 1;
       if (arr[j] > arr[j + 1]) {
+        counter++;
         swap(arr, j, j + 1);
         yield;
       }
@@ -22,8 +24,9 @@ export function *insertionsort({ arr, meta }) {
   meta.status = 'insert';
   for (let i = 1; i < arr.length; i++) {
     meta.i = i;
+    meta.smallest = i - 1;
+    yield;
     for (let j = i; j > 0 && arr[j] < arr[j - 1]; j--) {
-      yield;
       meta.j = j;
       meta.smallest = j - 1;
       swap(arr, j, j - 1);
