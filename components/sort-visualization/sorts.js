@@ -87,7 +87,12 @@ export function *quicksort({ arr, meta }) {
       meta.status = 'pick pivot';
       meta.smallest = l;
       meta.largest = h;
-      swap(arr, randIn(l, h), h);
+
+      // Use median of 3 as pivot.
+      const pivotArr = [randIn(l, h), randIn(l, h), randIn(l, h)];
+      pivotArr.sort((a, b) => arr[a] - arr[b]);
+
+      swap(arr, pivotArr[1], h);
       swaps++;
       yield;
 
