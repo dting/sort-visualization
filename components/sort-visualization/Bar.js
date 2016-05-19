@@ -5,19 +5,15 @@ import s from './Visualization.css';
 const cx = classNames.bind(s);
 
 function Bar({ idx, val, meta }) {
-  const className = cx({
+  const context = {
     bar: true,
     i: meta.i === idx,
     j: meta.j === idx,
     largest: meta.largest === idx,
     smallest: meta.smallest === idx,
-  });
-  const divStyle = {
-    height: `${val + 1}px`,
-    width: '1%',
-    backgroundColor: `hsl(210, 50%, ${75 - (val / 2)}%)`,
   };
-  return <div className={className} style={divStyle}></div>;
+  context[`bar-${val}`] = true;
+  return <div className={cx(context)}></div>;
 }
 
 export default Bar;

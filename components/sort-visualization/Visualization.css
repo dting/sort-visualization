@@ -6,6 +6,7 @@
 .bar {
   display: inline-block;
   border-bottom: 5px #132E51 solid;
+  width: 1%;
 }
 
 .i,
@@ -39,4 +40,405 @@
 
 .status {
   margin: 0 5px;
+}
+
+.bar-0 {
+  height: 0px;
+  background-color: hsl(210, 50%, 75%);
+}
+.bar-1 {
+  height: 1px;
+  background-color: hsl(210, 50%, 74.5%);
+}
+.bar-2 {
+  height: 2px;
+  background-color: hsl(210, 50%, 74%);
+}
+.bar-3 {
+  height: 3px;
+  background-color: hsl(210, 50%, 73.5%);
+}
+.bar-4 {
+  height: 4px;
+  background-color: hsl(210, 50%, 73%);
+}
+.bar-5 {
+  height: 5px;
+  background-color: hsl(210, 50%, 72.5%);
+}
+.bar-6 {
+  height: 6px;
+  background-color: hsl(210, 50%, 72%);
+}
+.bar-7 {
+  height: 7px;
+  background-color: hsl(210, 50%, 71.5%);
+}
+.bar-8 {
+  height: 8px;
+  background-color: hsl(210, 50%, 71%);
+}
+.bar-9 {
+  height: 9px;
+  background-color: hsl(210, 50%, 70.5%);
+}
+.bar-10 {
+  height: 10px;
+  background-color: hsl(210, 50%, 70%);
+}
+.bar-11 {
+  height: 11px;
+  background-color: hsl(210, 50%, 69.5%);
+}
+.bar-12 {
+  height: 12px;
+  background-color: hsl(210, 50%, 69%);
+}
+.bar-13 {
+  height: 13px;
+  background-color: hsl(210, 50%, 68.5%);
+}
+.bar-14 {
+  height: 14px;
+  background-color: hsl(210, 50%, 68%);
+}
+.bar-15 {
+  height: 15px;
+  background-color: hsl(210, 50%, 67.5%);
+}
+.bar-16 {
+  height: 16px;
+  background-color: hsl(210, 50%, 67%);
+}
+.bar-17 {
+  height: 17px;
+  background-color: hsl(210, 50%, 66.5%);
+}
+.bar-18 {
+  height: 18px;
+  background-color: hsl(210, 50%, 66%);
+}
+.bar-19 {
+  height: 19px;
+  background-color: hsl(210, 50%, 65.5%);
+}
+.bar-20 {
+  height: 20px;
+  background-color: hsl(210, 50%, 65%);
+}
+.bar-21 {
+  height: 21px;
+  background-color: hsl(210, 50%, 64.5%);
+}
+.bar-22 {
+  height: 22px;
+  background-color: hsl(210, 50%, 64%);
+}
+.bar-23 {
+  height: 23px;
+  background-color: hsl(210, 50%, 63.5%);
+}
+.bar-24 {
+  height: 24px;
+  background-color: hsl(210, 50%, 63%);
+}
+.bar-25 {
+  height: 25px;
+  background-color: hsl(210, 50%, 62.5%);
+}
+.bar-26 {
+  height: 26px;
+  background-color: hsl(210, 50%, 62%);
+}
+.bar-27 {
+  height: 27px;
+  background-color: hsl(210, 50%, 61.5%);
+}
+.bar-28 {
+  height: 28px;
+  background-color: hsl(210, 50%, 61%);
+}
+.bar-29 {
+  height: 29px;
+  background-color: hsl(210, 50%, 60.5%);
+}
+.bar-30 {
+  height: 30px;
+  background-color: hsl(210, 50%, 60%);
+}
+.bar-31 {
+  height: 31px;
+  background-color: hsl(210, 50%, 59.5%);
+}
+.bar-32 {
+  height: 32px;
+  background-color: hsl(210, 50%, 59%);
+}
+.bar-33 {
+  height: 33px;
+  background-color: hsl(210, 50%, 58.5%);
+}
+.bar-34 {
+  height: 34px;
+  background-color: hsl(210, 50%, 58%);
+}
+.bar-35 {
+  height: 35px;
+  background-color: hsl(210, 50%, 57.5%);
+}
+.bar-36 {
+  height: 36px;
+  background-color: hsl(210, 50%, 57%);
+}
+.bar-37 {
+  height: 37px;
+  background-color: hsl(210, 50%, 56.5%);
+}
+.bar-38 {
+  height: 38px;
+  background-color: hsl(210, 50%, 56%);
+}
+.bar-39 {
+  height: 39px;
+  background-color: hsl(210, 50%, 55.5%);
+}
+.bar-40 {
+  height: 40px;
+  background-color: hsl(210, 50%, 55%);
+}
+.bar-41 {
+  height: 41px;
+  background-color: hsl(210, 50%, 54.5%);
+}
+.bar-42 {
+  height: 42px;
+  background-color: hsl(210, 50%, 54%);
+}
+.bar-43 {
+  height: 43px;
+  background-color: hsl(210, 50%, 53.5%);
+}
+.bar-44 {
+  height: 44px;
+  background-color: hsl(210, 50%, 53%);
+}
+.bar-45 {
+  height: 45px;
+  background-color: hsl(210, 50%, 52.5%);
+}
+.bar-46 {
+  height: 46px;
+  background-color: hsl(210, 50%, 52%);
+}
+.bar-47 {
+  height: 47px;
+  background-color: hsl(210, 50%, 51.5%);
+}
+.bar-48 {
+  height: 48px;
+  background-color: hsl(210, 50%, 51%);
+}
+.bar-49 {
+  height: 49px;
+  background-color: hsl(210, 50%, 50.5%);
+}
+.bar-50 {
+  height: 50px;
+  background-color: hsl(210, 50%, 50%);
+}
+.bar-51 {
+  height: 51px;
+  background-color: hsl(210, 50%, 49.5%);
+}
+.bar-52 {
+  height: 52px;
+  background-color: hsl(210, 50%, 49%);
+}
+.bar-53 {
+  height: 53px;
+  background-color: hsl(210, 50%, 48.5%);
+}
+.bar-54 {
+  height: 54px;
+  background-color: hsl(210, 50%, 48%);
+}
+.bar-55 {
+  height: 55px;
+  background-color: hsl(210, 50%, 47.5%);
+}
+.bar-56 {
+  height: 56px;
+  background-color: hsl(210, 50%, 47%);
+}
+.bar-57 {
+  height: 57px;
+  background-color: hsl(210, 50%, 46.5%);
+}
+.bar-58 {
+  height: 58px;
+  background-color: hsl(210, 50%, 46%);
+}
+.bar-59 {
+  height: 59px;
+  background-color: hsl(210, 50%, 45.5%);
+}
+.bar-60 {
+  height: 60px;
+  background-color: hsl(210, 50%, 45%);
+}
+.bar-61 {
+  height: 61px;
+  background-color: hsl(210, 50%, 44.5%);
+}
+.bar-62 {
+  height: 62px;
+  background-color: hsl(210, 50%, 44%);
+}
+.bar-63 {
+  height: 63px;
+  background-color: hsl(210, 50%, 43.5%);
+}
+.bar-64 {
+  height: 64px;
+  background-color: hsl(210, 50%, 43%);
+}
+.bar-65 {
+  height: 65px;
+  background-color: hsl(210, 50%, 42.5%);
+}
+.bar-66 {
+  height: 66px;
+  background-color: hsl(210, 50%, 42%);
+}
+.bar-67 {
+  height: 67px;
+  background-color: hsl(210, 50%, 41.5%);
+}
+.bar-68 {
+  height: 68px;
+  background-color: hsl(210, 50%, 41%);
+}
+.bar-69 {
+  height: 69px;
+  background-color: hsl(210, 50%, 40.5%);
+}
+.bar-70 {
+  height: 70px;
+  background-color: hsl(210, 50%, 40%);
+}
+.bar-71 {
+  height: 71px;
+  background-color: hsl(210, 50%, 39.5%);
+}
+.bar-72 {
+  height: 72px;
+  background-color: hsl(210, 50%, 39%);
+}
+.bar-73 {
+  height: 73px;
+  background-color: hsl(210, 50%, 38.5%);
+}
+.bar-74 {
+  height: 74px;
+  background-color: hsl(210, 50%, 38%);
+}
+.bar-75 {
+  height: 75px;
+  background-color: hsl(210, 50%, 37.5%);
+}
+.bar-76 {
+  height: 76px;
+  background-color: hsl(210, 50%, 37%);
+}
+.bar-77 {
+  height: 77px;
+  background-color: hsl(210, 50%, 36.5%);
+}
+.bar-78 {
+  height: 78px;
+  background-color: hsl(210, 50%, 36%);
+}
+.bar-79 {
+  height: 79px;
+  background-color: hsl(210, 50%, 35.5%);
+}
+.bar-80 {
+  height: 80px;
+  background-color: hsl(210, 50%, 35%);
+}
+.bar-81 {
+  height: 81px;
+  background-color: hsl(210, 50%, 34.5%);
+}
+.bar-82 {
+  height: 82px;
+  background-color: hsl(210, 50%, 34%);
+}
+.bar-83 {
+  height: 83px;
+  background-color: hsl(210, 50%, 33.5%);
+}
+.bar-84 {
+  height: 84px;
+  background-color: hsl(210, 50%, 33%);
+}
+.bar-85 {
+  height: 85px;
+  background-color: hsl(210, 50%, 32.5%);
+}
+.bar-86 {
+  height: 86px;
+  background-color: hsl(210, 50%, 32%);
+}
+.bar-87 {
+  height: 87px;
+  background-color: hsl(210, 50%, 31.5%);
+}
+.bar-88 {
+  height: 88px;
+  background-color: hsl(210, 50%, 31%);
+}
+.bar-89 {
+  height: 89px;
+  background-color: hsl(210, 50%, 30.5%);
+}
+.bar-90 {
+  height: 90px;
+  background-color: hsl(210, 50%, 30%);
+}
+.bar-91 {
+  height: 91px;
+  background-color: hsl(210, 50%, 29.5%);
+}
+.bar-92 {
+  height: 92px;
+  background-color: hsl(210, 50%, 29%);
+}
+.bar-93 {
+  height: 93px;
+  background-color: hsl(210, 50%, 28.5%);
+}
+.bar-94 {
+  height: 94px;
+  background-color: hsl(210, 50%, 28%);
+}
+.bar-95 {
+  height: 95px;
+  background-color: hsl(210, 50%, 27.5%);
+}
+.bar-96 {
+  height: 96px;
+  background-color: hsl(210, 50%, 27%);
+}
+.bar-97 {
+  height: 97px;
+  background-color: hsl(210, 50%, 26.5%);
+}
+.bar-98 {
+  height: 98px;
+  background-color: hsl(210, 50%, 26%);
+}
+.bar-99 {
+  height: 99px;
+  background-color: hsl(210, 50%, 25.5%);
 }
