@@ -46,7 +46,7 @@ const SortVisualization = React.createClass({
           </Link>
         </div>
         <Bars arr={this.state.arr} meta={this.state.meta} />
-        {this.state.aux && <Bars arr={this.state.aux} meta={this.state.auxMeta} />}
+        {this.state.aux && <Bars arr={this.state.aux} meta={{aux: true}} />}
       </div>
     );
   },

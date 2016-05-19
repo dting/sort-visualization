@@ -5,9 +5,17 @@
   align-items: flex-end;
 }
 
+.bars.aux {
+  height: 99px;
+  align-items: flex-start;
+}
+
 .bar {
   border-bottom: 5px #132E51 solid;
   flex: 1;
+}
+.bar.aux {
+  border-bottom: none;
 }
 
 .i,

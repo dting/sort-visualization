@@ -1,6 +1,8 @@
 import { swap, rand, randIn } from './utils';
 
 export function *bubblesort({ arr, meta }) {
+  let comparisons = 0;
+  let swaps = 0;
   meta.status = 'bubble';
   for (let i = arr.length - 1, counter = 1; i > 0 && counter; i--) {
     counter = 0;
@@ -9,35 +11,45 @@ export function *bubblesort({ arr, meta }) {
       yield;
       meta.j = j;
       meta.largest = j + 1;
+      comparisons++;
       if (arr[j] > arr[j + 1]) {
         counter++;
+        swaps++;
         swap(arr, j, j + 1);
         yield;
       }
     }
   }
 
-  meta.status = 'done';
+  meta.status = `s: ${swaps} c: ${comparisons}`;
 };
 
 export function *insertionsort({ arr, meta }) {
+  let comparisons = 0;
+  let swaps = 0;
   meta.status = 'insert';
   for (let i = 1; i < arr.length; i++) {
     meta.i = i;
     meta.smallest = i - 1;
     yield;
+    comparisons++;
     for (let j = i; j > 0 && arr[j] < arr[j - 1]; j--) {
+      yield;
+      comparisons++;
       meta.j = j;
       meta.smallest = j - 1;
+      swaps++;
       swap(arr, j, j - 1);
       yield;
     }
   }
 
-  meta.status = 'done';
+  meta.status = `s: ${swaps} c: ${comparisons}`;
 };
 
 export function *selectionsort({ arr, meta }) {
+  let comparisons = 0;
+  let swaps = 0;
   for (let i = 0; i < arr.length; i++) {
     meta.status = 'select';
     let smallest = arr[i];
@@ -48,6 +60,7 @@ export function *selectionsort({ arr, meta }) {
     for (let j = i + 1; j < arr.length; j++) {
       meta.j = j;
       yield;
+      comparisons++;
       if (arr[j] <= smallest) {
         smallest = arr[j];
         smallestIndex = j;
@@ -56,14 +69,17 @@ export function *selectionsort({ arr, meta }) {
     }
 
     meta.status = 'swap';
+    swaps++;
     swap(arr, smallestIndex, i);
     yield;
   }
 
-  meta.status = 'done';
+  meta.status = `s: ${swaps} c: ${comparisons}`;
 };
 
 export function *quicksort({ arr, meta }) {
+  let comparisons = 0;
+  let swaps = 0;
   const stack = [{ l: 0, h: arr.length - 1 }];
   while (stack.length) {
     let { l, h } = stack.pop();
@@ -72,6 +88,7 @@ export function *quicksort({ arr, meta }) {
       meta.smallest = l;
       meta.largest = h;
       swap(arr, randIn(l, h), h);
+      swaps++;
       yield;
 
       let pivotIndex = l;
@@ -81,7 +98,9 @@ export function *quicksort({ arr, meta }) {
       for (let j = l; j < h; j++) {
         meta.j = j;
         yield;
+        comparisons++;
         if (arr[j] <= pivotValue) {
+          swaps++;
           swap(arr, pivotIndex, j);
           yield;
           pivotIndex++;
@@ -89,6 +108,7 @@ export function *quicksort({ arr, meta }) {
         }
       }
 
+      swaps++;
       swap(arr, pivotIndex, h);
       yield;
       stack.push({ l: pivotIndex + 1, h: h });
@@ -96,13 +116,15 @@ export function *quicksort({ arr, meta }) {
     }
   }
 
-  meta.status = 'done';
+  meta.status = `s: ${swaps} c: ${comparisons}`;
 };
 
 const left = i => 2 * i + 1;
 const right = i => 2 * i + 2;
 
 export function *heapsort({ arr, meta }) {
+  let comparisons = 0;
+  let swaps = 0;
   for (let i = Math.floor((arr.length - 1) / 2); i > -1; i--) {
     meta.status = 'build heap';
     meta.i = i;
@@ -117,16 +139,19 @@ export function *heapsort({ arr, meta }) {
       meta.j = j;
 
       yield;
+      comparisons++;
       if (l < size && arr[l] > arr[largest]) {
         largest = l;
       }
 
       yield;
+      comparisons++;
       if (r < size && arr[r] > arr[largest]) {
         largest = r;
       }
 
       if (largest !== j) {
+        swaps++;
         swap(arr, j, largest);
         yield;
         stack.push({ j: largest, size: size });
@@ -137,6 +162,7 @@ export function *heapsort({ arr, meta }) {
   for (let i = arr.length - 1; i > 0; i--) {
     meta.status = 'swap';
     meta.i = i;
+    swaps++;
     swap(arr, 0, i);
     yield;
     meta.status = 'heapify';
@@ -151,16 +177,19 @@ export function *heapsort({ arr, meta }) {
       meta.j = j;
 
       yield;
+      comparisons++;
       if (l < size && arr[l] > arr[largest]) {
         largest = l;
       }
 
       yield;
+      comparisons++;
       if (r < size && arr[r] > arr[largest]) {
         largest = r;
       }
 
       if (largest !== j) {
+        swaps++;
         swap(arr, j, largest);
         yield;
         stack.push({ j: largest, size: size });
@@ -168,10 +197,12 @@ export function *heapsort({ arr, meta }) {
     }
   }
 
-  meta.status = 'done';
+  meta.status = `s: ${swaps} c: ${comparisons}`;
 };
 
 export function *mergesort({ arr, aux, meta, auxmeta }) {
+  let comparisons = 0;
+  let merges = 0;
   const stack = [{ l: 0, h: arr.length - 1 }];
   while (stack.length) {
     meta.status = 'sort';
@@ -186,10 +217,11 @@ export function *mergesort({ arr, aux, meta, auxmeta }) {
       let pos = l;
 
       while (i < m && j <= h) {
-        yield;
         meta.i = i;
         meta.j = j;
         yield;
+        comparisons++;
+        merges++;
         if (arr[i] > arr[j]) {
           aux[pos++] = arr[j++];
         } else {
@@ -197,33 +229,44 @@ export function *mergesort({ arr, aux, meta, auxmeta }) {
         }
       }
 
+      meta.i = -1;
+      meta.j = -1;
+
       while (i < m) {
-        yield;
+        merges++;
         aux[pos++] = arr[i++];
-        meta.i = i;
-        meta.j = j;
       }
 
       while (j <= h) {
-        yield;
+        merges++;
         aux[pos++] = arr[j++];
-        meta.i = i;
-        meta.j = j;
       }
 
-      for (let k = l; k <= h; k++) {
+      for (let k = l, count = 0; k <= h; k++, count++) {
         arr[k] = aux[k];
         aux[k] = 99;
-      }
 
-      meta.i = -1;
-      meta.j = -1;
+        // Yield every other index to simulate same write speed as swap.
+        if (count % 2 === 0) yield;
+      }
     } else {
       if (h - l === 1) {
         yield;
+        comparisons++;
+        merges++;
         if (arr[l] > arr[h]) {
-          swap(arr, l, h);
+          aux[l] = arr[h];
+          aux[h] = arr[l];
+        } else {
+          aux[l] = arr[l];
+          aux[h] = arr[h];
         }
+
+        yield;
+        arr[l] = aux[l];
+        aux[l] = 99;
+        arr[h] = aux[h];
+        aux[h] = 99;
       } else if (h - l > 1) {
         const m = Math.floor((h - l) / 2) + l;
         stack.push({ l: l, h: h, action: 'merge' });
@@ -233,7 +276,7 @@ export function *mergesort({ arr, aux, meta, auxmeta }) {
     }
   }
 
-  meta.status = 'done';
+  meta.status = `m: ${merges} c: ${comparisons}`;
 };
 
 export function *bogosort({ arr, meta }) {

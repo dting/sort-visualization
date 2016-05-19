@@ -11,6 +11,7 @@ function Bar({ idx, val, meta }) {
     j: meta.j === idx,
     largest: meta.largest === idx,
     smallest: meta.smallest === idx,
+    aux: meta.aux,
   };
   context[`bar-${val}`] = true;
   return <div className={cx(context)} />;
