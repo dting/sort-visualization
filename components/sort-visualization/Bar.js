@@ -15,7 +15,7 @@ function Bar({ idx, val, meta }) {
   const divStyle = {
     height: `${val + 1}px`,
     width: '1%',
-    backgroundColor: `rgba(0, 0, 0, ${(val + 1) / 100})`,
+    backgroundColor: `hsl(210, 50%, ${75 - (val / 2)}%)`,
   };
   return <div className={className} style={divStyle}></div>;
 }
